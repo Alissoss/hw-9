@@ -13,6 +13,9 @@ const notifications = [
 const groupBySource = (arr) => {
   return arr.reduce((acc, notification) => {
     const { source, text, date } = notification;
+    if (!acc[source]) {
+      acc[source] = [];
+    }
       acc[source].push({ text, date });
       return acc;
     }, {});
